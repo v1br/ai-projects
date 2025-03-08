@@ -7,10 +7,10 @@
 <br />
 <p align="center">
 
-  <h3 align="center">Turborepo Starter</h3>
+  <h3 align="center">AI Projects</h3>
 
   <p align="center">
-    A reusable monorepo template for scalable web apps. 🚀<br />
+    A collection of live projects using AI models. 🚀<br />
     <br />
     <a href="https://github.com/v1br/turborepo-template">View Repo</a>
     |
@@ -20,8 +20,9 @@
   </p>
 
   <p align="center">
-    <img src="https://img.shields.io/badge/next-292929?logo=nextdotjs">
     <img src="https://img.shields.io/badge/turbo-292929?logo=turborepo">
+    <img src="https://img.shields.io/badge/vite-292929?logo=vite">
+    <img src="https://img.shields.io/badge/react-292929?logo=react">
     <img src="https://img.shields.io/badge/bun-292929?logo=bun">
   </p>
 </p>
@@ -43,7 +44,7 @@ This Turborepo template is designed for rapid **full-stack development** with **
 ## 📂 Project Structure
 
 ```
-/turborepo-template
+/turborepo
 │── apps
 │   ├── web
 │── packages
@@ -65,12 +66,13 @@ This Turborepo template is designed for rapid **full-stack development** with **
 
 2️⃣ **Install dependencies**
 ```sh
- bun install  # Or yarn install / npm install / pnpm install
+ bun install
 ```
 
 3️⃣ **Run the dev server**
 ```sh
- cd turbo && turbo dev
+ cd turborepo/apps/web
+ bun dev
 ```
 
 ---
