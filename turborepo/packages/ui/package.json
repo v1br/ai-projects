@@ -5,6 +5,7 @@
   "exports": {
     "./*": "./src/*.tsx"
   },
+  "type": "module",
   "scripts": {
     "lint": "eslint . --max-warnings 0",
     "generate:component": "turbo gen react-component",
@@ -22,6 +23,8 @@
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.0.12",
+    "axios": "^1.8.2",
+    "chartjs": "^0.3.24",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwindcss": "^4.0.12"
