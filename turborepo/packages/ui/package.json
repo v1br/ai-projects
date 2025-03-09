@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./*": "./src/*.tsx"
+    "./*": "./src/*.tsx",
+    "./types/*": "./types/*.ts"
   },
   "type": "module",
   "scripts": {
@@ -14,7 +15,9 @@
   "devDependencies": {
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
+    "@repo/data-types": "*",
     "@turbo/gen": "^2.4.4",
+    "@types/chart.js": "^2.9.41",
     "@types/node": "^22.13.9",
     "@types/react": "19.0.10",
     "@types/react-dom": "19.0.4",

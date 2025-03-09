@@ -1,53 +1,85 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useMemo } from "react";
 import Chart, { ChartData, ChartOptions } from "chart.js/auto";
+import { BarProps } from "../../types/pictoral.js";
 
-interface DataPoint {
-  year: number;
-  count: number;
-}
-
-interface BarProps {
-  className?: string;
-  rawData: DataPoint[];
-  label: string;
-  borderWidth?: number;
-}
-
-export const Bar = ({ className, rawData, label, borderWidth }: BarProps) => {
+export const Bar = ({
+  label,
+  xlabel,
+  xpref,
+  xsuff,
+  ylabel,
+  ypref,
+  ysuff,
+  rawData,
+  className,
+  borderWidth,
+}: BarProps) => {
   const chartRef = useRef<HTMLCanvasElement | null>(null);
   const chartInstanceRef = useRef<Chart | null>(null);
 
+  // Object selection
+
   // Chart data
-  const data: ChartData<"bar"> = {
-    labels: rawData.map(row => row.year),
-    datasets: [
-      {
-        label: label,
-        data: rawData.map(row => row.count),
-        // backgroundColor: ["red", "blue", "yellow", "green"],
-        // borderColor: ["darkred", "darkblue", "goldenrod", "darkgreen"],
-        borderWidth: borderWidth? borderWidth : 0,
-      },
-    ],
-  }
+  const data: ChartData<"bar"> = useMemo<ChartData<"bar">>(
+    () => ({
+      labels: rawData.map((row) => row.x),
+      datasets: [
+        {
+          label: label,
+          data: rawData.map((row) => row.y),
+          // backgroundColor: ["red", "blue", "yellow", "green"],
+          // borderColor: ["darkred", "darkblue", "goldenrod", "darkgreen"],
+          borderWidth: borderWidth ? borderWidth : 0,
+        },
+      ],
+    }),
+    [borderWidth, label, rawData],
+  );
 
   // Chart options
-  const options: ChartOptions<"bar"> = {
-    plugins: {
-      legend: {
-        display: true,
-        position: "top",
-        labels: {
-          color: "black",
-          font: { size: 14 },
-          boxWidth: 16,
-          boxHeight: 8,
-          usePointStyle: false,
-          pointStyle: "circle",
+  const options: ChartOptions<"bar"> = useMemo<ChartOptions<"bar">>(
+    () => ({
+      scales: {
+        x: {
+          title: {
+            display: xlabel ? true : false,
+            text: xlabel,
+          },
+          ticks: {
+            callback: function (value) {
+              return (xpref ? xpref : "") + value + (xsuff ? xsuff : "");
+            },
+          },
+        },
+        y: {
+          title: {
+            display: ylabel ? true : false,
+            text: ylabel,
+          },
+          ticks: {
+            callback: function (value) {
+              return (ypref ? ypref : "") + value + (ysuff ? ysuff : "");
+            },
+          },
         },
       },
-    },
-  };
+      plugins: {
+        legend: {
+          display: true,
+          position: "top",
+          labels: {
+            color: "black",
+            font: { size: 14 },
+            boxWidth: 16,
+            boxHeight: 8,
+            usePointStyle: false,
+            pointStyle: "circle",
+          },
+        },
+      },
+    }),
+    [xlabel, xpref, xsuff, ylabel, ypref, ysuff],
+  );
 
   useEffect(() => {
     if (!chartRef.current) return;
