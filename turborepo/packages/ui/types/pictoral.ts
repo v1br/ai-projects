@@ -1,6 +1,10 @@
 import { FrequencyDistribution } from "./tabular.js";
 
 export interface BarProps {
+
+  // frame
+  width?: string;
+
   // data
   label: string;
   xlabel?: string;
@@ -14,4 +18,7 @@ export interface BarProps {
   // styles
   className?: string;
   borderWidth?: number;
+  borderColor?: string[];
+  barColor?: string[];
+  isHorizontal?: boolean;
 }

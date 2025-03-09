@@ -3,6 +3,11 @@ import Chart, { ChartData, ChartOptions } from "chart.js/auto";
 import { BarProps } from "../../types/pictoral.js";
 
 export const Bar = ({
+
+  // frame
+  width,
+
+  // data
   label,
   xlabel,
   xpref,
@@ -11,8 +16,14 @@ export const Bar = ({
   ypref,
   ysuff,
   rawData,
+
+  // styles
   className,
   borderWidth,
+  borderColor,
+  barColor,
+  isHorizontal,
+
 }: BarProps) => {
   const chartRef = useRef<HTMLCanvasElement | null>(null);
   const chartInstanceRef = useRef<Chart | null>(null);
@@ -22,14 +33,16 @@ export const Bar = ({
   // Chart data
   const data: ChartData<"bar"> = useMemo<ChartData<"bar">>(
     () => ({
-      labels: rawData.map((row) => row.x),
+      labels: rawData.map((row) => {
+        return `${xpref || ""}${row.x}${xsuff || ""}`;
+      }),
       datasets: [
         {
           label: label,
           data: rawData.map((row) => row.y),
-          // backgroundColor: ["red", "blue", "yellow", "green"],
-          // borderColor: ["darkred", "darkblue", "goldenrod", "darkgreen"],
-          borderWidth: borderWidth ? borderWidth : 0,
+          backgroundColor: barColor,
+          borderColor: borderColor,
+          borderWidth: borderWidth,
         },
       ],
     }),
@@ -39,16 +52,12 @@ export const Bar = ({
   // Chart options
   const options: ChartOptions<"bar"> = useMemo<ChartOptions<"bar">>(
     () => ({
+      indexAxis: isHorizontal? 'y' : 'x',
       scales: {
         x: {
           title: {
             display: xlabel ? true : false,
             text: xlabel,
-          },
-          ticks: {
-            callback: function (value) {
-              return (xpref ? xpref : "") + value + (xsuff ? xsuff : "");
-            },
           },
         },
         y: {
@@ -106,7 +115,7 @@ export const Bar = ({
 
   return (
     <div className={className}>
-      <canvas ref={chartRef} />
+      <canvas className={width} ref={chartRef} />
     </div>
   );
 };
