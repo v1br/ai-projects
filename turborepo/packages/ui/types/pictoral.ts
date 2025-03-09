@@ -1,24 +1,21 @@
-import { FrequencyDistribution } from "./tabular.js";
+import { ChartDataset, Point } from "chart.js/auto";
 
-export interface BarProps {
+// GRID
+export interface GridInterface {
+  columns: string[];
+  plots: Plot[];
+  styles: GridStyle;
+}
 
-  // frame
-  width?: string;
-
-  // data
-  label: string;
-  xlabel?: string;
-  xpref?: string;
-  xsuff?: string;
-  ylabel?: string;
-  ypref?: string;
-  ysuff?: string;
-  rawData: FrequencyDistribution[];
-
-  // styles
+export interface GridStyle {
   className?: string;
-  borderWidth?: number;
-  borderColor?: string[];
-  barColor?: string[];
+  xlabel?: string;
+  ylabel?: string;
   isHorizontal?: boolean;
 }
+
+// PLOT
+export type Plot = ChartDataset<
+  "bar" | "line",
+  (number | [number, number] | Point | null)[]
+>;

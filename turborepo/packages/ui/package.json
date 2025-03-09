@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./*": "./src/*.tsx",
+    "./src/components/*": "./src/components/*.tsx",
+    "./src/figures/*": "./src/figures/*.tsx",
+    "./src/shared/*": "./src/shared/*.tsx",
     "./types/*": "./types/*.ts"
   },
   "type": "module",

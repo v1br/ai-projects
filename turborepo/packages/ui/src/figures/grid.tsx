@@ -1,75 +1,39 @@
 import { useEffect, useRef, useMemo } from "react";
 import Chart, { ChartData, ChartOptions } from "chart.js/auto";
-import { BarProps } from "../../types/pictoral.js";
+import { GridInterface } from "../../types/pictoral.js";
 
-export const Bar = ({
-
-  // frame
-  width,
-
-  // data
-  label,
-  xlabel,
-  xpref,
-  xsuff,
-  ylabel,
-  ypref,
-  ysuff,
-  rawData,
-
-  // styles
-  className,
-  borderWidth,
-  borderColor,
-  barColor,
-  isHorizontal,
-
-}: BarProps) => {
+const Grid = ({ columns, plots, styles }: GridInterface) => {
   const chartRef = useRef<HTMLCanvasElement | null>(null);
   const chartInstanceRef = useRef<Chart | null>(null);
 
-  // Object selection
-
   // Chart data
-  const data: ChartData<"bar"> = useMemo<ChartData<"bar">>(
+  const data: ChartData<"bar" | "line"> = useMemo<ChartData<"bar" | "line">>(
     () => ({
-      labels: rawData.map((row) => {
-        return `${xpref || ""}${row.x}${xsuff || ""}`;
-      }),
-      datasets: [
-        {
-          label: label,
-          data: rawData.map((row) => row.y),
-          backgroundColor: barColor,
-          borderColor: borderColor,
-          borderWidth: borderWidth,
-        },
-      ],
+      labels: columns,
+      datasets: plots,
     }),
-    [borderWidth, label, rawData],
+    [plots, columns],
   );
 
   // Chart options
-  const options: ChartOptions<"bar"> = useMemo<ChartOptions<"bar">>(
+  const options: ChartOptions<"bar" | "line"> = useMemo<
+    ChartOptions<"bar" | "line">
+  >(
     () => ({
-      indexAxis: isHorizontal? 'y' : 'x',
+      indexAxis: styles.isHorizontal ? "y" : "x",
       scales: {
         x: {
           title: {
-            display: xlabel ? true : false,
-            text: xlabel,
+            display: styles.xlabel ? true : false,
+            text: styles.xlabel,
           },
         },
         y: {
           title: {
-            display: ylabel ? true : false,
-            text: ylabel,
+            display: styles.ylabel ? true : false,
+            text: styles.ylabel,
           },
-          ticks: {
-            callback: function (value) {
-              return (ypref ? ypref : "") + value + (ysuff ? ysuff : "");
-            },
-          },
+          ticks: {},
         },
       },
       plugins: {
@@ -87,7 +51,7 @@ export const Bar = ({
         },
       },
     }),
-    [xlabel, xpref, xsuff, ylabel, ypref, ysuff],
+    [styles.xlabel, styles.ylabel, styles.isHorizontal],
   );
 
   useEffect(() => {
@@ -114,8 +78,10 @@ export const Bar = ({
   }, [data, options]);
 
   return (
-    <div className={className}>
-      <canvas className={width} ref={chartRef} />
+    <div className={styles.className}>
+      <canvas ref={chartRef} />
     </div>
   );
 };
+
+export default Grid;
