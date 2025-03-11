@@ -1,87 +1,76 @@
 <!-- Shields.io badges -->
-![Turborepo](https://img.shields.io/badge/turborepo-monorepo-black?style=flat-square)
-![GitHub contributors](https://img.shields.io/github/contributors/v1br/turborepo-template?style=flat-square&color=black)
-![GitHub issues](https://img.shields.io/github/issues/v1br/turborepo-template?style=flat-square&color=black)
+
+![GitHub contributors](https://img.shields.io/github/contributors/v1br/ai-projects?style=flat-square&color=black)
+
+![GitHub issues](https://img.shields.io/github/issues-pr/v1br/ai-projects?style=flat-square&color=black)
+
+![GitHub issues](https://img.shields.io/github/issues/v1br/ai-projects?style=flat-square&color=black)
 
 <!-- MAIN SECTION -->
-<br />
 <p align="center">
 
   <h3 align="center">AI Projects</h3>
+  <h5 align="center"><img src="chart.gif" height="32px"/></h5>
 
   <p align="center">
     A collection of live projects using AI models. 🚀<br />
     <br />
-    <a href="https://github.com/v1br/turborepo-template">View Repo</a>
+    <a href="https://github.com/v1br/ai-projects/">Docs</a>
     |
-    <a href="https://github.com/v1br/turborepo-template/issues">Report Bug</a>
+    <a href="https://github.com/v1br/ai-projects/pulls">Pulls</a>
     |
-    <a href="https://github.com/v1br">More Projects</a>
+    <a href="https://github.com/v1br/ai-projects/issues">Issues</a>
+    |
+    <a href="https://github.com/v1br/ai-projects?tab=MIT-1-ov-file">License</a>
   </p>
 
   <p align="center">
     <img src="https://img.shields.io/badge/turbo-292929?logo=turborepo">
     <img src="https://img.shields.io/badge/vite-292929?logo=vite">
     <img src="https://img.shields.io/badge/react-292929?logo=react">
+    <img src="https://img.shields.io/badge/chart-292929?logo=chartdotjs">
     <img src="https://img.shields.io/badge/bun-292929?logo=bun">
   </p>
 </p>
 
 ---
 
-## 🚀 About This Template
-
-This Turborepo template is designed for rapid **full-stack development** with **scalability** in mind. It includes:
-- 📦 **Monorepo architecture** using Turborepo
-- ⚡ **Next.js** for frontend apps
-- 🛠 **TypeScript** for type safety
-- ♻️ **Reusable UI components** inside `packages/ui`
-- 🔍 **ESLint & Prettier** configurations for clean code
-- ✅ **Optimized build & caching** via Turborepo
+tools & frameworks:
+- <a href="https://phaser.io/">Chart.js</a> for rendering dynamic charts and figures.
+- <a href="https://expressjs.com/">React.js</a> for handling transitions, & components.
+- <a href="https://expressjs.com/">Turborepo</a> for streamlining the development process.
 
 ---
 
-## 📂 Project Structure
+📂 Running the project locally:
 
+```bash
+git clone https://github.com/v1br/ai-projects.git
+cd ai-projects/turborepo/apps/web
+bun install
+bun run dev
 ```
-/turborepo
-│── apps
-│   ├── web
-│── packages
-│   ├── ui
-│   ├── eslint-config
-│   ├── tsconfig
-│── turbo.json
-│── package.json
-```
+
+<!-- [You can also test the project online.]() -->
 
 ---
 
-## 🛠 Setup & Installation
+💻 Contributing to the project:
 
-1️⃣ **Clone the repo**
-```sh
- git clone https://github.com/v1br/turborepo-template.git
+```bash
+# [ fork the repository ]
+git clone https://github.com/user/ai-projects.git && cd ai-projects
+git branch -b new-feature
+# [ apply your changes ]
+git add changes
+git commit -m "meaningful message"
+git push origin new-feature
+# [ create a pull request ]
 ```
 
-2️⃣ **Install dependencies**
-```sh
- bun install
-```
-
-3️⃣ **Run the dev server**
-```sh
- cd turborepo/apps/web
- bun dev
-```
+> [!IMPORTANT]
+> Please follow conventional commits: https://www.conventionalcommits.org/en/v1.0.0/
 
 ---
 
-### 📜 License
-
-This project is licensed under the **MIT License**.
-
----
-
-<p align="center">[ made with 🤟🏼 by v1br ]</p>
-
+<p align="center">🥕🐇</p>
