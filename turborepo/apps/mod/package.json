@@ -4,7 +4,7 @@
     "version": "0.0.0",
     "type": "module",
     "scripts": {
-      "dev": "cmd /C dev.bat",
+      "dev": "bun run dev.mjs",
       "build": "echo 'Done'"
     }
 }
