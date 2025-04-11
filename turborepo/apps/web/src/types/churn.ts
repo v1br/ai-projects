@@ -1,11 +1,11 @@
 import { z } from "zod";
 
-export const Customer = {
+const TCustomer = {
   gender: z.enum(["Female", "Male"]),
   seniorCitizen: z.union([z.literal(0), z.literal(1)]),
   partner: z.union([z.literal(0), z.literal(1)]),
   dependents: z.union([z.literal(0), z.literal(1)]),
-  tenure: z.number().positive(),
+  tenure: z.number().nonnegative(),
   phoneService: z.union([z.literal(0), z.literal(1)]),
   multipleLines: z.enum(["Yes", "No", "No phone service"]),
   internetService: z.enum(["DSL", "Fiber optic", "No"]),
@@ -23,6 +23,12 @@ export const Customer = {
     "Bank transfer (automatic)",
     "Credit card (automatic)",
   ]),
-  monthlyCharges: z.number().positive(),
-  totalCharges: z.number().positive(),
+  monthlyCharges: z.number().nonnegative(),
+  totalCharges: z.number().nonnegative(),
 };
+
+export const CustomerSchema = z.object(TCustomer);
+export type Customer = z.infer<typeof CustomerSchema>;
+export type Churn = {
+  churn_prediction: number;
+}

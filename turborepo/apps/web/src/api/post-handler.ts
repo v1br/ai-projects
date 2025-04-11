@@ -5,7 +5,7 @@ export async function postHandler<TInput, TResponse>(
 ): Promise<TResponse> {
   try {
     const response = await axios.post<TResponse>(
-      `${process.env.BACKEND_URL}/predict`,
+      `${import.meta.env.VITE_BACKEND_URL}/predict`,
       data,
     );
     return response.data;
