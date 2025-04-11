@@ -10,7 +10,7 @@ _model = None
 def load_model():
     """Loads and returns the trained model (lazy-loaded)."""
     global _model
-    if _model is None:  
+    if _model is None:  # Load only if not already loaded
         current_dir = os.path.dirname(os.path.abspath(__file__))
         model_path = os.path.abspath(os.path.join(current_dir, "../../models/v1.2_Gradient_Boosting_calibrated.pkl"))
         

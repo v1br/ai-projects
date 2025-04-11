@@ -8,7 +8,7 @@ export const CustomerForm = () => {
         const formData = new FormData(e.currentTarget);
       
         const rawData = Object.fromEntries(formData.entries());
-      
+        
         // Convert string numbers to actual numbers
         const parsedData: Record<string, unknown> = {
           ...rawData,
@@ -25,16 +25,17 @@ export const CustomerForm = () => {
         const validation = CustomerSchema.safeParse(parsedData);
       
         if (!validation.success) {
-          console.error("Validation failed", validation.error.flatten());
+          console.error("Validation failed ❌", validation.error.flatten());
           return;
         }
-      
+        
         const data: Customer = validation.data;
-      
+        console.log("Object ~> ", data);
+
         try {
           const result = await postHandler<Customer, Churn>(data);
           if (result) {
-            console.log("Prediction succeeded: ", result.churn_prediction);
+            console.log("Prediction succeeded ✔️: ", result.churn_prediction);
           } else {
             console.log("Prediction failed ❌");
           }
