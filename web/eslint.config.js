@@ -1,28 +1,44 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import tseslint from 'typescript-eslint'
+import { defineConfig } from "eslint/config";
+import js from "@eslint/js";
+import globals from "globals";
+import tsParser from "@typescript-eslint/parser";
+import tseslint from "@typescript-eslint/eslint-plugin";
+import pluginReact from "eslint-plugin-react";
 
-export default tseslint.config(
-  { ignores: ['dist'] },
-  {
-    extends: [js.configs.recommended, ...tseslint.configs.recommended],
-    files: ['**/*.{ts,tsx}'],
-    languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
-    },
-    plugins: {
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
-    },
-    rules: {
-      ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
-    },
-  },
-)
+export default defineConfig([
+	{
+		ignores: ["dist"], // Ensure /dist is ignored globally
+	},
+	{
+		files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
+		languageOptions: {
+			globals: globals.browser,
+		},
+		plugins: { js },
+		rules: {
+			...js.configs.recommended.rules,
+			"indent": ["error", "tab", { "SwitchCase": 1 }], // Use tabs for indentation
+			"quotes": ["error", "double"], // Enforce double quotes
+			"semi": ["error", "always"], // Always require semicolons
+			"no-tabs": "off", // Allow the use of tabs for indentation
+		},
+	},
+	{
+		files: ["**/*.{ts,tsx}"],
+		languageOptions: {
+			parser: tsParser,
+		},
+		plugins: { "@typescript-eslint": tseslint },
+		rules: tseslint.configs.recommended.rules,
+	},
+	{
+		files: ["**/*.{jsx,tsx}"],
+		settings: {
+			react: {
+				version: "detect",
+			},
+		},
+		plugins: { react: pluginReact },
+		rules: pluginReact.configs.flat.recommended.rules,
+	},
+]);
