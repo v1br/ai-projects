@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@repo/chart-lib": "file:../../packages/chart-lib",
+    "@repo/typescript-config": "file:../../packages/typescript-config",
+    "@repo/eslint-config": "file:../../packages/eslint-config",
     "@tailwindcss/vite": "^4.0.12",
     "axios": "^1.8.4",
     "chart.js": "^4.4.8",
