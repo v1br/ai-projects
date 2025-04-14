@@ -1,8 +1,8 @@
 import { useEffect, useRef, useMemo } from "react";
 import Chart, { ChartData, ChartOptions } from "chart.js/auto";
-import { GridInterface } from "../../types/pictoral.js";
+import { GridInterface } from "../types/pictoral.js";
 
-const Grid = ({ columns, plots, styles }: GridInterface) => {
+export const Grid = ({ columns, plots, styles }: GridInterface) => {
   const chartRef = useRef<HTMLCanvasElement | null>(null);
   const chartInstanceRef = useRef<Chart | null>(null);
 
@@ -83,5 +83,3 @@ const Grid = ({ columns, plots, styles }: GridInterface) => {
     </div>
   );
 };
-
-export default Grid;
