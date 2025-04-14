@@ -1,1 +1,0 @@
-{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/api/post-handler.ts","./src/components/customer-form.tsx","./src/components/sidebar.tsx","./src/pages/error.tsx","./src/pages/home.tsx","./src/types/churn.ts"],"version":"5.7.3"}

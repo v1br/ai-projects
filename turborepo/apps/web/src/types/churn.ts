@@ -31,4 +31,4 @@ export const CustomerSchema = z.object(TCustomer);
 export type Customer = z.infer<typeof CustomerSchema>;
 export type Churn = {
   churn_prediction: number;
-};
+}

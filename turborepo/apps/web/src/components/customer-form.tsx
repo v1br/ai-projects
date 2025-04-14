@@ -2,51 +2,53 @@ import { CustomerSchema, type Customer, type Churn } from "../types/churn";
 import { postHandler } from "../api/post-handler";
 
 export const CustomerForm = () => {
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
 
-    const rawData = Object.fromEntries(formData.entries());
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+      
+        const rawData = Object.fromEntries(formData.entries());
+        
+        // Convert string numbers to actual numbers
+        const parsedData: Record<string, unknown> = {
+          ...rawData,
+          seniorCitizen: Number(rawData.seniorCitizen),
+          partner: Number(rawData.partner),
+          dependents: Number(rawData.dependents),
+          phoneService: Number(rawData.phoneService),
+          paperlessBilling: Number(rawData.paperlessBilling),
+          tenure: Number(rawData.tenure),
+          monthlyCharges: Number(rawData.monthlyCharges),
+          totalCharges: Number(rawData.totalCharges),
+        };
+      
+        const validation = CustomerSchema.safeParse(parsedData);
+      
+        if (!validation.success) {
+          console.error("Validation failed ❌", validation.error.flatten());
+          return;
+        }
+        
+        const data: Customer = validation.data;
+        console.log("Object ~> ", data);
 
-    // Convert string numbers to actual numbers
-    const parsedData: Record<string, unknown> = {
-      ...rawData,
-      seniorCitizen: Number(rawData.seniorCitizen),
-      partner: Number(rawData.partner),
-      dependents: Number(rawData.dependents),
-      phoneService: Number(rawData.phoneService),
-      paperlessBilling: Number(rawData.paperlessBilling),
-      tenure: Number(rawData.tenure),
-      monthlyCharges: Number(rawData.monthlyCharges),
-      totalCharges: Number(rawData.totalCharges),
-    };
+        try {
+          const result = await postHandler<Customer, Churn>(data);
+          if (result) {
+            console.log("Prediction succeeded ✔️: ", result.churn_prediction);
+          } else {
+            console.log("Prediction failed ❌");
+          }
+        } catch (err) {
+          console.error("Submission error", err);
+        }
+      };
 
-    const validation = CustomerSchema.safeParse(parsedData);
-
-    if (!validation.success) {
-      console.error("Validation failed ❌", validation.error.flatten());
-      return;
-    }
-
-    const data: Customer = validation.data;
-    console.log("Object ~> ", data);
-
-    try {
-      const result = await postHandler<Customer, Churn>(data);
-      if (result) {
-        console.log("Prediction succeeded ✔️: ", result.churn_prediction);
-      } else {
-        console.log("Prediction failed ❌");
-      }
-    } catch (err) {
-      console.error("Submission error", err);
-    }
-  };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="w-full max-w-2xl mx-auto p-6 bg-white rounded-2xl shadow-xl space-y-6 my-8"
+    <form 
+        onSubmit={handleSubmit}
+        className="w-full max-w-2xl mx-auto p-6 bg-white rounded-2xl shadow-xl space-y-6 my-8"
     >
       <h2 className="text-2xl font-bold text-gray-800 text-center">
         Customer Details
@@ -184,24 +186,25 @@ export const CustomerForm = () => {
       ))}
 
       <div className="flex flex-row items-center justify-center gap-8">
+
         {/* Submit */}
         <div className="pt-4 text-center">
-          <button
+            <button
             type="submit"
             className="bg-blue-600 text-white px-6 py-2 rounded-lg shadow hover:bg-blue-700 transition"
-          >
+            >
             Submit
-          </button>
+            </button>
         </div>
 
         {/* Reset */}
         <div className="pt-4 text-center">
-          <button
+            <button
             type="reset"
             className="bg-gray-200 text-black px-6 py-2 rounded-lg shadow hover:bg-gray-400 transition"
-          >
+            >
             Reset
-          </button>
+            </button>
         </div>
       </div>
     </form>
