@@ -1,5 +1,5 @@
-import { CustomerSchema, type Customer, type Churn } from "../types/churn.ts";
-import { postHandler } from "../api/post-handler.ts";
+import { CustomerSchema, type Customer, type Churn } from "../types/churn";
+import { postHandler } from "../api/post-handler";
 
 export const CustomerForm = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {

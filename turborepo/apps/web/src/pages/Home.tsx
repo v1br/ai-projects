@@ -1,7 +1,7 @@
 // import React from 'react'
 
-import { CustomerForm } from "../components/customer-form.tsx";
-import Sidebar from "../components/sidebar.tsx";
+import { CustomerForm } from "../components/customer-form";
+import Sidebar from "../components/sidebar";
 
 export const Home = () => {
   return (
