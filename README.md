@@ -36,7 +36,7 @@
 
 ---
 
-This repository contains the Frontend for the project, to view the backend, visit the [Backend Repository](https://example.com/), maintained by [Abhinn Verma](https://github.com/AbhinnV04). 🫱🏼‍🫲🏼✨
+This repository contains the Frontend for the project, to view the backend, visit the [Backend Repository](https://github.com/AbhinnV04/Customer_Churn_Telco), maintained by [Abhinn Verma](https://github.com/AbhinnV04). ✨
 
 Frontend Tech Stack:
 - <a href="https://vite.dev/">Vite.js</a> for building & deploying the application.
