@@ -20,7 +20,8 @@ export default defineConfig([
 			"indent": ["error", "tab", { "SwitchCase": 1 }], // Use tabs for indentation
 			"quotes": ["error", "double"], // Enforce double quotes
 			"semi": ["error", "always"], // Always require semicolons
-			"no-tabs": "off", // Allow the use of tabs for indentation
+			"no-tabs": "off", // Allow tabs for indentation
+			"react/react-in-jsx-scope": "off", // Disable the rule
 		},
 	},
 	{
@@ -29,7 +30,10 @@ export default defineConfig([
 			parser: tsParser,
 		},
 		plugins: { "@typescript-eslint": tseslint },
-		rules: tseslint.configs.recommended.rules,
+		rules: {
+			...tseslint.configs.recommended.rules,
+			"react/react-in-jsx-scope": "off", // Disable the rule
+		} 
 	},
 	{
 		files: ["**/*.{jsx,tsx}"],
@@ -39,6 +43,9 @@ export default defineConfig([
 			},
 		},
 		plugins: { react: pluginReact },
-		rules: pluginReact.configs.flat.recommended.rules,
+		rules: {
+			...pluginReact.configs.flat.recommended.rules,
+			"react/react-in-jsx-scope": "off", // Disable the rule
+		}
 	},
 ]);

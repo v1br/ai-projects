@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import { useEffect, useRef, useMemo } from "react";
 import Chart, { type ChartData, type ChartOptions } from "chart.js/auto";
 import type { GridInterface } from "../../types/pictoral";

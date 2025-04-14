@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 
 // import types
 import type { Plot, GridStyle } from "../types/pictoral";
