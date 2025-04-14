@@ -7,7 +7,7 @@ import pluginReact from "eslint-plugin-react";
 
 export default defineConfig([
 	{
-		ignores: ["dist"], // Ensure /dist is ignored globally
+		ignores: ["dist"],
 	},
 	{
 		files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
@@ -21,7 +21,7 @@ export default defineConfig([
 			"quotes": ["error", "double"], // Enforce double quotes
 			"semi": ["error", "always"], // Always require semicolons
 			"no-tabs": "off", // Allow tabs for indentation
-			"react/react-in-jsx-scope": "off", // Disable the rule
+			"react/react-in-jsx-scope": "off", // Ignore default react import
 		},
 	},
 	{
@@ -32,7 +32,7 @@ export default defineConfig([
 		plugins: { "@typescript-eslint": tseslint },
 		rules: {
 			...tseslint.configs.recommended.rules,
-			"react/react-in-jsx-scope": "off", // Disable the rule
+			"react/react-in-jsx-scope": "off",
 		} 
 	},
 	{
@@ -45,7 +45,7 @@ export default defineConfig([
 		plugins: { react: pluginReact },
 		rules: {
 			...pluginReact.configs.flat.recommended.rules,
-			"react/react-in-jsx-scope": "off", // Disable the rule
+			"react/react-in-jsx-scope": "off",
 		}
 	},
 ]);

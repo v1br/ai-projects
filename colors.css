@@ -1,0 +1,23 @@
+.black {
+    background-color: #000000; /* Text */
+}
+
+.white {
+    background-color: #ffffff; /* Foreground */
+}
+
+.red-400 {
+    background-color: #ff6467; /* Accent */
+}
+
+.gray-100 {
+    background-color: #f3f4f6; /* Background */
+}
+
+.gray-200 {
+    background-color: #e5e7eb; /* Hover */
+}
+
+.gray-600 {
+    background-color: #4a5565; /* Icon */
+}
