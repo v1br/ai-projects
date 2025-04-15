@@ -3,6 +3,7 @@ import { CustomerSchema, type Customer, type Churn, type Form } from "../../type
 import { postHandler } from "../../api/post-handler";
 import { personalFields, storeFields } from "../../data/customer";
 import { HoverCard } from "../designs/hover-card";
+import toast from "react-hot-toast";
 
 export const CustomerForm = () => {
 
@@ -56,6 +57,8 @@ export const CustomerForm = () => {
 		const confirmReset = window.confirm("Are you sure you want to reset the form? All entered data will be lost.");
 		if (!confirmReset) return;
 
+		toast.success("Form reset successfully 🫡");
+
 		setFormData({
 			gender: "Male",
 			seniorCitizen: "1",
@@ -100,22 +103,26 @@ export const CustomerForm = () => {
 		const validation = CustomerSchema.safeParse(parsedData);
 		if (!validation.success) {
 			console.error("Validation failed ❌", validation.error.flatten());
+			toast.error("Validation failed, unexpected inputs 🤷🏼‍♀️");
 			return;
 		}
 		
 		const data: Customer = validation.data;
 		console.log("Validation succeeded ✔️", data);
+		toast.success("Validation succeeded, sending data to model 💭");
 	
 		// send validated form inputs to backend for prediction
 		try {
 			const result = await postHandler<Customer, Churn>(data);
 			if (result) {
 				console.log("Prediction succeeded ✔️: ", result.churn_prediction);
+				toast.success("Prediction succeeded, " + (result.churn_prediction? "customer WILL churn ⚠️" : "customer WONT churn 🥂"));
 			} else {
-				console.log("Prediction failed ❌");
+				toast.success("Prediction failed, model denied request 😥");
 			}
 		} catch (err) {
-			console.error("Submission error", err);
+			console.error("Submission error ❌", err);
+			toast.error("Submission error, server denied request 😥");
 		}
 	};
 	

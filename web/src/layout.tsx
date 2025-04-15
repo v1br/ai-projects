@@ -1,6 +1,7 @@
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { Navbar } from "./components/shared/navbar";
 import { Sidebar } from "./components/shared/sidebar";
+import { Toaster } from "react-hot-toast";
 
 export const Layout = () => {
 	const navigate = useNavigate();
@@ -13,6 +14,9 @@ export const Layout = () => {
 
 	return (
 		<>
+			{/* Toaster */}
+			<Toaster position="top-right" reverseOrder={false} />
+
 			{/* Desktop Layout */}
 			<div id="layout-desktop" className="hidden lg:block w-screen h-screen bg-gray-100">
 				<Sidebar currentPage={currentPath} setCurrentPage={handleNavigate} />
@@ -20,7 +24,6 @@ export const Layout = () => {
 					<Outlet />
 				</main>
 			</div>
-
 
 			{/* Mobile & Tab Layout */}
 			<div id="layout-mobile" className="flex lg:hidden flex-col w-screen h-screen bg-gray-100">
