@@ -45,7 +45,7 @@ export const CustomerChart = () => {
 
 	const styles: GridStyle = {
 		isHorizontal: true,
-		className: "w-[96%] lg:max-w-xl h-56 p-4 bg-white border border-gray-300 rounded-lg shadow-sm hover:shadow-md hover:scale-[1.02] transition-all duration-300 ease-in-out",
+		className: "w-[96%] lg:max-w-xl h-56 p-4 bg-white border border-gray-300 rounded-lg shadow-sm",
 	};
 
 	return (
