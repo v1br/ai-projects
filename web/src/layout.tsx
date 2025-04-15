@@ -1,5 +1,6 @@
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
-import { Sidebar } from "./components/interfaces/sidebar";
+import { Navbar } from "./components/shared/navbar";
+import { Sidebar } from "./components/shared/sidebar";
 
 export const Layout = () => {
 	const navigate = useNavigate();
@@ -11,11 +12,23 @@ export const Layout = () => {
 	};
 
 	return (
-		<div className="fixed top-0 left-0 flex w-screen h-screen bg-gray-100">
-			<Sidebar currentPage={currentPath} setCurrentPage={handleNavigate} />
-			<main className="flex-1 p-4">
-				<Outlet />
-			</main>
-		</div>
+		<>
+			{/* Desktop Layout */}
+			<div id="layout-desktop" className="hidden lg:block w-screen h-screen bg-gray-100">
+				<Sidebar currentPage={currentPath} setCurrentPage={handleNavigate} />
+				<main className="fixed right-0 top-0 w-3/4 h-full overflow-y-auto bg-white shadow-lg">
+					<Outlet />
+				</main>
+			</div>
+
+
+			{/* Mobile & Tab Layout */}
+			<div id="layout-mobile" className="flex lg:hidden flex-col w-screen h-screen bg-gray-100">
+				<Navbar currentPage={currentPath} setCurrentPage={handleNavigate} />
+				<main className="w-full h-full mt-4 overflow-y-auto bg-white shadow-md">
+					<Outlet />
+				</main>
+			</div>
+		</>
 	);
 };

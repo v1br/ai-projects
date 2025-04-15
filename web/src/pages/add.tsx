@@ -1,11 +1,9 @@
-import { HoverCard } from "../components/designs/hover-card";
+import { CustomerForm } from "../components/interfaces/customer-form";
 
 export const Add = () => {
 	return (
-		<div className="fixed right-0 top-0 w-3/4 h-screen overflow-y-scroll overflow-x-hidden bg-white shadow-lg z-10">
-			<HoverCard>
-				This is the Add Page.
-			</HoverCard>
+		<div className="flex flex-col items-center justify-start w-full max-w-4xl h-full lg:px-6 py-8">
+			<CustomerForm />
 		</div>
 	);
 };

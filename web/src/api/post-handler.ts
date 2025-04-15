@@ -10,7 +10,7 @@ export async function postHandler<TInput, TResponse>(
 		);
 		return response.data;
 	} catch (error) {
-		console.error("POST handler error:", error);
+		console.error("POST handler error: ", error);
 		throw error;
 	}
 }
