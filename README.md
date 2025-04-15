@@ -63,7 +63,7 @@ bun install
 
 Then, clone & prepare the Backend repository.
 ```bash
-git clone git@github.com:AbhinnV04/Customer_Churn_Telco.git telco-back
+git clone https://github.com/AbhinnV04/Customer_Churn_Telco.git telco-back
 cd telco-back
 python -m venv venv
 venv\Scripts\activate # on windows only
