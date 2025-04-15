@@ -3,7 +3,7 @@ import { HoverCard } from "../designs/hover-card";
 import { CustomerSchema, type Customer, type Churn, type Form } from "../../types/churn";
 import { postHandler } from "../../api/post-handler";
 import { toDataPoint, saveDataPoint } from "../../helpers/local-store";
-import { personalFields, storeFields } from "../../data/customer";
+import { personalFields, storeFields } from "../../helpers/form-structure";
 import toast from "react-hot-toast";
 
 export const CustomerForm = () => {

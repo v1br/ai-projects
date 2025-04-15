@@ -20,7 +20,7 @@ export const Layout = () => {
 			{/* Desktop Layout */}
 			<div id="layout-desktop" className="hidden lg:block w-screen h-screen bg-gray-100">
 				<Sidebar currentPage={currentPath} setCurrentPage={handleNavigate} />
-				<main className="fixed right-0 top-0 w-3/4 h-full overflow-y-auto bg-white shadow-lg">
+				<main className="fixed right-0 top-0 w-3/4 h-full mb-8 overflow-y-auto bg-white shadow-lg">
 					<Outlet />
 				</main>
 			</div>

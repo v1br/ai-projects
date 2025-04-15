@@ -1,3 +1,4 @@
-- create customer-table interface
 - populate bar chart with actual data
 - fill home page with info + redirects
+- attach dark mode / light mode toggle
+- do a fancy palette swap
