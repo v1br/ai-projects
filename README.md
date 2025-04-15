@@ -1,14 +1,10 @@
 <!-- Shields.io badges -->
 
-![GitHub contributors](https://img.shields.io/github/contributors/v1br/telco-churn?style=flat-square&color=black)
-
-![GitHub issues](https://img.shields.io/github/issues-pr/v1br/telco-churn?style=flat-square&color=black)
-
-![GitHub issues](https://img.shields.io/github/issues/v1br/telco-churn?style=flat-square&color=black)
+![GitHub contributors](https://img.shields.io/github/contributors/v1br/telco-churn?style=flat-square&color=black) ![GitHub issues](https://img.shields.io/github/issues-pr/v1br/telco-churn?style=flat-square&color=black) ![GitHub issues](https://img.shields.io/github/issues/v1br/telco-churn?style=flat-square&color=black)
 
 <!-- MAIN SECTION -->
 <p align="center">
-
+  <br />
   <h3 align="center">Telco Customer Churn</h3>
   <h5 align="center"><img src="chart.gif" height="32px"/></h5>
 
@@ -27,8 +23,9 @@
   <p align="center">
     <img src="https://img.shields.io/badge/vite-292929?logo=vite&logoColor=7a81f5">
     <img src="https://img.shields.io/badge/react-292929?logo=react">
-    <img src="https://img.shields.io/badge/chart-292929?logo=chartdotjs">
     <img src="https://img.shields.io/badge/tailwind-292929?logo=tailwindcss">
+    <img src="https://img.shields.io/badge/chart-292929?logo=chartdotjs">
+    <img src="https://img.shields.io/badge/zod-292929?logo=zod">
     <img src="https://img.shields.io/badge/bun-292929?logo=bun">
     <img src="https://img.shields.io/badge/eslint-292929?logo=eslint&logoColor=8181f2">
   </p>
@@ -40,9 +37,10 @@ This repository contains the Frontend for the project, to view the backend, visi
 
 Frontend Tech Stack:
 - <a href="https://vite.dev/">Vite.js</a> for building & deploying the application.
-- <a href="https://react.dev/">React.js</a> for handling transitions, & components.
-- <a href="https://www.chartjs.org/">Chart.js</a> for rendering dynamic charts and figures.
+- <a href="https://react.dev/">React.js</a> for handling transitions & components.
 - <a href="https://tailwindcss.com/">Tailwind</a> for adding styles to the application.
+- <a href="https://www.chartjs.org/">Chart.js</a> for rendering dynamic charts and figures.
+- <a href="https://www.chartjs.org/">Zod</a> for form validation & XSS security.
 
 Additional Dev Tools:
 - <a href="https://bun.sh/">Bun</a> for testing, bundling & managing dependencies.
