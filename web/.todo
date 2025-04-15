@@ -1,6 +1,0 @@
-- finish customer-form interface
-- add a shared toaster component
-- setup local store for customer cache
-- create customer-table interface
-- attach horizontal bar chart to dash
-- fill home page with info + redirects

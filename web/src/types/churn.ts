@@ -1,5 +1,8 @@
 import { z } from "zod";
 
+
+// TYPES REQUIRED FOR ZOD VALIDATION
+
 const TCustomer = {
 
 	// personal
@@ -29,7 +32,6 @@ const TCustomer = {
 	techSupport: z.enum(["Yes", "No", "No internet service"]),
 	streamingTV: z.enum(["Yes", "No", "No internet service"]),
 	streamingMovies: z.enum(["Yes", "No", "No internet service"]),
-
 };
 
 export const CustomerSchema = z.object(TCustomer);
@@ -37,6 +39,9 @@ export type Customer = z.infer<typeof CustomerSchema>;
 export type Churn = {
 	churn_prediction: number;
 };
+
+
+// TYPES REQUIRED FOR FORM DATA HANDLING
 
 export type Form = {
 
@@ -62,4 +67,36 @@ export type Form = {
 	techSupport: string,
 	streamingTV: string,
 	streamingMovies: string,
+};
+
+
+// TYPES REQUIRED FOR LOCAL STORAGE
+export type DataPoint = {
+
+	// identifier
+	_id: string,
+
+	// user information
+	gender: string,
+	seniorCitizen: number,
+	partner: number,
+	dependents: number,
+	tenure: number,
+	monthlyCharges: number,
+	totalCharges: number,
+	phoneService: number,
+	paperlessBilling: number,
+	multipleLines: string,
+	internetService: string,
+	contract: string,
+	paymentMethod: string,
+	onlineSecurity: string,
+	onlineBackup: string,
+	deviceProtection: string,
+	techSupport: string,
+	streamingTV: string,
+	streamingMovies: string,
+
+	// prediction
+	prediction: number
 };

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import { HoverCard } from "../designs/hover-card";
 import { CustomerSchema, type Customer, type Churn, type Form } from "../../types/churn";
 import { postHandler } from "../../api/post-handler";
+import { toDataPoint, saveDataPoint } from "../../helpers/local-store";
 import { personalFields, storeFields } from "../../data/customer";
-import { HoverCard } from "../designs/hover-card";
 import toast from "react-hot-toast";
 
 export const CustomerForm = () => {
@@ -115,8 +116,14 @@ export const CustomerForm = () => {
 		try {
 			const result = await postHandler<Customer, Churn>(data);
 			if (result) {
+				const prediction = result.churn_prediction;
 				console.log("Prediction succeeded ✔️: ", result.churn_prediction);
 				toast.success("Prediction succeeded, " + (result.churn_prediction? "customer WILL churn ⚠️" : "customer WONT churn 🥂"));
+			
+				// save the customer data point inside local storage
+				const dataPoint = toDataPoint(formData, prediction);
+				saveDataPoint(dataPoint);
+			
 			} else {
 				toast.success("Prediction failed, model denied request 😥");
 			}
@@ -125,7 +132,6 @@ export const CustomerForm = () => {
 			toast.error("Submission error, server denied request 😥");
 		}
 	};
-	
 
 	return (
 
@@ -273,9 +279,9 @@ export const CustomerForm = () => {
 						${activeSection === "personal"
 			? "bg-gray-200 text-gray-400 cursor-not-allowed"
 			: "bg-gray-100 text-black hover:bg-gray-200 hover:scale-105"}
-					`}
+						`}
 					>
-					Prev
+						Prev
 					</button>
 
 					<button
@@ -283,14 +289,14 @@ export const CustomerForm = () => {
 						onClick={handleReset}
 						className="bg-gray-100 text-black w-1/3 px-4 py-1.5 rounded-md shadow-sm hover:bg-gray-200 hover:scale-105 transition-all"
 					>
-					Reset
+						Reset
 					</button>
 
 					<button
 						type="submit"
 						className={`${activeSection === "preview" ? "block" : "hidden"} bg-red-400 text-white w-1/3 px-4 py-1.5 rounded-md shadow-sm hover:bg-red-500 hover:scale-105 transition-all`}
 					>
-					Submit
+						Submit
 					</button>
 
 					<button
@@ -301,9 +307,9 @@ export const CustomerForm = () => {
 						${activeSection === "preview"
 			? "hidden"
 			: "bg-gray-100 text-black hover:bg-gray-200 hover:scale-105"}
-					`}
+						`}
 					>
-					Next
+						Next
 					</button>
 				</div>
 			</form>

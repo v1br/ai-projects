@@ -6,7 +6,6 @@ import { Add } from "./pages/add";
 import { Dash } from "./pages/dash";
 import { Error } from "./pages/error";
 import { Home } from "./pages/home";
-import { Test } from "./pages/test";
 
 const App = () => {
 	return (
@@ -16,7 +15,6 @@ const App = () => {
 					<Route path="/" element={<Home />} />
 					<Route path="/add" element={<Add />} />
 					<Route path="/dash" element={<Dash />} />
-					<Route path="/test" element={<Test />} />
 					<Route path="*" element={<Error />} />
 				</Route>
 			</Routes>
