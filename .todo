@@ -1,4 +1,2 @@
 - attach dark mode / light mode toggle
-- set up ping handler
 - attach loader for model cold start
-- update colors.css with new palette
