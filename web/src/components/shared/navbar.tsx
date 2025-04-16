@@ -36,9 +36,9 @@ export const Navbar = ({
 				id="navbar"
 				className="flex lg:hidden flex-row items-center justify-between w-full h-16 px-8 gap-4 bg-white shadow-md"
 			>
-				<span className="text-lg">telco-churn-predictor</span>
+				<span className="text-lg text-gray-700 font-medium">Telco Customer Churn Predictor</span>
 				<button onClick={() => setOpen(!open)}>
-					<Menu className="w-6 h-6" />
+					<Menu className="w-6 h-6 text-purple-600 font-medium" />
 				</button>
 			</div>
 
@@ -57,7 +57,7 @@ export const Navbar = ({
 									setOpen(false);
 								}}
 								className={`px-4 py-2 cursor-pointer hover:bg-gray-100 ${
-									currentPage === path ? "bg-gray-200 text-red-400 font-semibold" : ""
+									currentPage === path ? "bg-gray-200 text-purple-600 font-semibold" : ""
 								}`}
 							>
 								{label}

@@ -1,10 +1,10 @@
 import { ReactNode } from "react";
 
-export const SidebarItem = ({ label, icon, isActive, onClick }: { label: string, icon: ReactNode, isActive: boolean, onClick: () => void }) => {
+export const SidebarItem = ({ label, icon, isActive, onClick, disable }: { label: string, icon: ReactNode, isActive: boolean, onClick: () => void, disable?: boolean }) => {
 	return (
-		<li onClick={onClick} className={`flex flex-row items-center justify-start w-full px-8 py-4 gap-x-4 hover:bg-gray-200 border-l-4 ${isActive? "border-red-400" : "border-white"}`}>
-			<span className={`${isActive? "text-red-400" : "text-gray-600"}`}>{icon}</span>
-			<span className={`${isActive? "text-red-400" : "text-black"} text-sm font-sans font-semibold`}>{label}</span>
+		<li onClick={onClick} className={`flex flex-row items-center justify-start w-full px-8 py-4 gap-x-4 border-l-4 ${isActive? "border-purple-600" : "border-white"} ${disable? "cursor-not-allowed" : "hover:bg-gray-200"}`}>
+			<span className={`${isActive? "text-purple-600" : "text-gray-600"}`}>{icon}</span>
+			<span className={`${isActive? "text-purple-600" : "text-gray-600"} text-sm font-sans font-semibold`}>{label}</span>
 		</li>
 	);
 };

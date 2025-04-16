@@ -21,23 +21,23 @@ export const CustomerChart = () => {
 
 
 	// chart config
-	const red = "#fb2c36";
-	const green = "#00c951";
+	const retColor = "#9810fa";
+	const chuColor = "#6f6f96";
     
 	const plots: Plot[] = [
 		{
 			label: "Retained",
 			data: retained.map((row) => row.y),
-			borderColor: green,
-			backgroundColor: green,
+			borderColor: retColor,
+			backgroundColor: retColor,
 			type: "bar",
 			order: 1,
 		},
 		{
 			label: "May Churn",
 			data: mayChurn.map((row) => row.y),
-			borderColor: red,
-			backgroundColor: red,
+			borderColor: chuColor,
+			backgroundColor: chuColor,
 			type: "bar",
 			order: 1,
 		}
@@ -45,7 +45,7 @@ export const CustomerChart = () => {
 
 	const styles: GridStyle = {
 		isHorizontal: true,
-		className: "w-[96%] lg:max-w-xl h-56 p-4 bg-white border border-gray-300 rounded-lg shadow-sm",
+		className: "w-[96%] lg:max-w-xl h-56 p-4 m-2 bg-white border border-gray-300 rounded-lg shadow-sm",
 	};
 
 	return (

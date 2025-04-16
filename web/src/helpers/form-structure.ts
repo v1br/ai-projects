@@ -3,7 +3,6 @@ export const personalFields = {
 		{ 
 			name: "gender", 
 			label: "Gender", 
-			enable: "Male",
 			options: [
 				{
 					choice: "Male",
@@ -18,7 +17,6 @@ export const personalFields = {
 		{ 
 			name: "seniorCitizen", 
 			label: "Senior Citizen",
-			enable: "1", 
 			options: [
 				{
 					choice: "Yes",
@@ -33,7 +31,6 @@ export const personalFields = {
 		{ 
 			name: "partner", 
 			label: "Partner", 
-			enable: "1",
 			options: [
 				{
 					choice: "Yes",
@@ -48,7 +45,6 @@ export const personalFields = {
 		{ 
 			name: "dependents", 
 			label: "Dependents", 
-			enable: "1",
 			options: [
 				{
 					choice: "Yes",
@@ -79,12 +75,11 @@ export const personalFields = {
 };
 
 
-export const storeFields = {
+export const serviceFields = {
 	radio: [
 		{ 
 			name: "phoneService", 
 			label: "Phone Service", 
-			enable: "1",
 			options: [
 				{
 					choice: "Yes",
@@ -99,7 +94,6 @@ export const storeFields = {
 		{ 
 			name: "paperlessBilling", 
 			label: "Paperless Billing", 
-			enable: "1",
 			options: [
 				{
 					choice: "Yes",
@@ -116,7 +110,6 @@ export const storeFields = {
 		{ 
 			name: "internetService", 
 			label: "Internet Service", 
-			enable: "DSL",
 			options: [
 				{
 					choice: "DSL",
@@ -135,7 +128,6 @@ export const storeFields = {
 		{ 
 			name: "multipleLines", 
 			label: "Multiple Lines", 
-			enable: "Yes",
 			options: [
 				{
 					choice: "Yes",
@@ -154,7 +146,6 @@ export const storeFields = {
 		{ 
 			name: "onlineSecurity", 
 			label: "Online Security", 
-			enable: "Yes",
 			options: [
 				{
 					choice: "Yes",
@@ -173,7 +164,6 @@ export const storeFields = {
 		{ 
 			name: "onlineBackup", 
 			label: "Online Backup", 
-			enable: "Yes",
 			options: [
 				{
 					choice: "Yes",
@@ -192,7 +182,6 @@ export const storeFields = {
 		{ 
 			name: "deviceProtection", 
 			label: "Device Protection", 
-			enable: "Yes",
 			options: [
 				{
 					choice: "Yes",
@@ -211,7 +200,6 @@ export const storeFields = {
 		{ 
 			name: "techSupport", 
 			label: "Tech Support", 
-			enable: "Yes",
 			options: [
 				{
 					choice: "Yes",
@@ -230,7 +218,6 @@ export const storeFields = {
 		{ 
 			name: "streamingTV", 
 			label: "Streaming TV", 
-			enable: "Yes",
 			options: [
 				{
 					choice: "Yes",
@@ -249,7 +236,6 @@ export const storeFields = {
 		{ 
 			name: "streamingMovies", 
 			label: "Streaming Movies", 
-			enable: "Yes",
 			options: [
 				{
 					choice: "Yes",

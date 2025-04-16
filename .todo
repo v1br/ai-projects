@@ -1,4 +1,4 @@
-- populate bar chart with actual data
-- fill home page with info + redirects
 - attach dark mode / light mode toggle
-- do a fancy palette swap
+- set up ping handler
+- attach loader for model cold start
+- update colors.css with new palette

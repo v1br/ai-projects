@@ -41,7 +41,7 @@ export const CustomerTable = () => {
 									<td className="px-4 py-2 whitespace-nowrap min-w-[7rem]">
 										<span
 											className={`px-2 py-0.5 rounded text-white text-xs ${
-												d.prediction ? "bg-red-500" : "bg-green-500"
+												d.prediction ? "bg-[#6f6f96]" : "bg-[#9810fa]"
 											}`}
 										>
 											{d.prediction ? "May Churn" : "Retained"}
