@@ -1,14 +1,10 @@
 import axios from "axios";
 
-export async function pingHandler<TResponse>(
-): Promise<TResponse> {
+export async function pingHandler(): Promise<void> {
 	try {
-		const response = await axios.get<TResponse>(
-			`${import.meta.env.VITE_BACKEND_URL}/`,
-		);
-		return response.data;
-	} catch (error) {
-		console.error("PING handler error: ", error);
-		throw error;
+		await axios.get(`${import.meta.env.VITE_BACKEND_URL}/`);
+		console.debug("Backend pinged successfully!");
+	} catch (err) {
+		console.warn("Backend ping failed: ", err);
 	}
 }

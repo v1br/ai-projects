@@ -1,7 +1,14 @@
+import { useEffect } from "react";
 import { ExternalLink, Laptop } from "lucide-react";
 import { HoverCard } from "../components/designs/hover-card";
+import { pingHandler } from "../api/ping-handler";
 
 export const Home = () => {
+
+	useEffect(() => {
+		pingHandler();
+	}, []);
+
 	return (
 		<div className="flex flex-col items-center justify-start w-full max-w-4xl h-fit min-h-full lg:px-6 lg:py-8 space-y-6">
 			<h1 className="hidden lg:flex items-center text-3xl text-center text-gray-600 font-medium gap-4">
