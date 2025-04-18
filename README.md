@@ -113,4 +113,6 @@ git push origin new-feature
 
 ---
 
-<p align="center">🥕🐇</p>
+<p align="center">
+  <a href="https://kopimi.com/" target="_blank" rel="noopener noreferer"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Kopimi_k.svg" width="24px" /></a>
+</p>
